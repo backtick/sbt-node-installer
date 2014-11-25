@@ -1,6 +1,7 @@
 package ch.backtick.sbt.node
 
 import sbt._
+import sbt.Keys._
 
 object Import {
   val nodeInstaller = TaskKey[Unit]("node-install", "installs node.js runtime locally")
@@ -25,7 +26,10 @@ object SbtNodeInstaller extends AutoPlugin {
     nodeVersion := "v0.10.33",
     npmVersion := "2.1.7",
     nodeDirectory := file(".node/"),
-    nodeInstaller := Node(nodeDirectory.value, nodeVersion.value, npmVersion.value)
+    nodeInstaller := {
+      streams.value.log.info("Checking / Updating node.js installation")
+      Node(nodeDirectory.value, nodeVersion.value, npmVersion.value)
+    }
   )
 }
 

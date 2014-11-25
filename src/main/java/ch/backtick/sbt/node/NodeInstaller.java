@@ -19,7 +19,6 @@ public class NodeInstaller {
         this.factory = new FrontendPluginFactory(workingDir);
 
         try {
-            System.out.println("Checking / Updating node.js installation");
             this.factory.getNodeAndNPMInstaller().install(nodeVersion, npmVersion);
         } catch (InstallationException e) {
             e.printStackTrace();
