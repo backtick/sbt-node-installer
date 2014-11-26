@@ -1,6 +1,7 @@
 package ch.backtick.sbt.node
 
 import org.slf4j.impl.StaticLoggerBinder
+import org.slf4j.impl.StaticLoggerBinder._
 
 import sbt._
 import sbt.Keys._

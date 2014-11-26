@@ -4,7 +4,7 @@ organization := "ch.backtick.sbt"
 
 name := "sbt-node-installer"
 
-version := "0.2.0-SNAPSHOT"
+version := "0.2.1-SNAPSHOT"
 
 scalaVersion := "2.10.4"
 
