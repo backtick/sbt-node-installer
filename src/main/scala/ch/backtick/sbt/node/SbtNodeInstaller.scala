@@ -1,7 +1,5 @@
 package ch.backtick.sbt.node
 
-import org.slf4j.impl.StaticLoggerBinder
-
 import sbt._
 import sbt.Keys._
 
@@ -29,18 +27,15 @@ object SbtNodeInstaller extends AutoPlugin {
     npmVersion := "2.1.7",
     nodeDirectory := file(".node/"),
     nodeInstaller := {
-      val log = streams.value.log
-      log.info("Checking / Updating node.js installation")
-      Node(nodeDirectory.value, nodeVersion.value, npmVersion.value, log)
+      streams.value.log.info("Checking / Updating node.js installation")
+      Node(nodeDirectory.value, nodeVersion.value, npmVersion.value)
     }
   )
 }
 
 // core feature implemented here
 object Node {
-  def apply(nodeDirectory: File, nodeVersion: String, npmVersion: String, log: Logger): Unit = {
-    StaticLoggerBinder.sbtLogger = log
-
+  def apply(nodeDirectory: File, nodeVersion: String, npmVersion: String): Unit = {
     new NodeInstaller(nodeDirectory, nodeVersion, npmVersion)
   }
 }
