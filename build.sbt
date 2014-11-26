@@ -8,4 +8,7 @@ version := "0.2.0-SNAPSHOT"
 
 scalaVersion := "2.10.4"
 
-libraryDependencies += "com.github.eirslett" % "frontend-plugin-core" % "0.0.16"
+libraryDependencies ++= Seq(
+  "com.github.eirslett" % "frontend-plugin-core" % "0.0.16",
+  "com.github.eirslett" %% "sbt-slf4j" % "0.1"
+)
